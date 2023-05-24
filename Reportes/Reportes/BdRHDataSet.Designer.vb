@@ -39,7 +39,7 @@ Partial Public Class BdRHDataSet
     
     Private tableregions As regionsDataTable
     
-    Private tableemployees1 As employees1DataTable
+    Private tableRptJobEmployees As RptJobEmployeesDataTable
     
     Private relationFK__countries__regio__286302EC As Global.System.Data.DataRelation
     
@@ -105,8 +105,8 @@ Partial Public Class BdRHDataSet
             If (Not (ds.Tables("regions")) Is Nothing) Then
                 MyBase.Tables.Add(New regionsDataTable(ds.Tables("regions")))
             End If
-            If (Not (ds.Tables("employees1")) Is Nothing) Then
-                MyBase.Tables.Add(New employees1DataTable(ds.Tables("employees1")))
+            If (Not (ds.Tables("RptJobEmployees")) Is Nothing) Then
+                MyBase.Tables.Add(New RptJobEmployeesDataTable(ds.Tables("RptJobEmployees")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -199,9 +199,9 @@ Partial Public Class BdRHDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property employees1() As employees1DataTable
+    Public ReadOnly Property RptJobEmployees() As RptJobEmployeesDataTable
         Get
-            Return Me.tableemployees1
+            Return Me.tableRptJobEmployees
         End Get
     End Property
     
@@ -293,8 +293,8 @@ Partial Public Class BdRHDataSet
             If (Not (ds.Tables("regions")) Is Nothing) Then
                 MyBase.Tables.Add(New regionsDataTable(ds.Tables("regions")))
             End If
-            If (Not (ds.Tables("employees1")) Is Nothing) Then
-                MyBase.Tables.Add(New employees1DataTable(ds.Tables("employees1")))
+            If (Not (ds.Tables("RptJobEmployees")) Is Nothing) Then
+                MyBase.Tables.Add(New RptJobEmployeesDataTable(ds.Tables("RptJobEmployees")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -370,10 +370,10 @@ Partial Public Class BdRHDataSet
                 Me.tableregions.InitVars
             End If
         End If
-        Me.tableemployees1 = CType(MyBase.Tables("employees1"),employees1DataTable)
+        Me.tableRptJobEmployees = CType(MyBase.Tables("RptJobEmployees"),RptJobEmployeesDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableemployees1) Is Nothing) Then
-                Me.tableemployees1.InitVars
+            If (Not (Me.tableRptJobEmployees) Is Nothing) Then
+                Me.tableRptJobEmployees.InitVars
             End If
         End If
         Me.relationFK__countries__regio__286302EC = Me.Relations("FK__countries__regio__286302EC")
@@ -407,8 +407,8 @@ Partial Public Class BdRHDataSet
         MyBase.Tables.Add(Me.tablelocations)
         Me.tableregions = New regionsDataTable()
         MyBase.Tables.Add(Me.tableregions)
-        Me.tableemployees1 = New employees1DataTable()
-        MyBase.Tables.Add(Me.tableemployees1)
+        Me.tableRptJobEmployees = New RptJobEmployeesDataTable()
+        MyBase.Tables.Add(Me.tableRptJobEmployees)
         Me.relationFK__countries__regio__286302EC = New Global.System.Data.DataRelation("FK__countries__regio__286302EC", New Global.System.Data.DataColumn() {Me.tableregions.region_idColumn}, New Global.System.Data.DataColumn() {Me.tablecountries.region_idColumn}, false)
         Me.Relations.Add(Me.relationFK__countries__regio__286302EC)
         Me.relationFK__departmen__locat__35BCFE0A = New Global.System.Data.DataRelation("FK__departmen__locat__35BCFE0A", New Global.System.Data.DataColumn() {Me.tablelocations.location_idColumn}, New Global.System.Data.DataColumn() {Me.tabledepartments.location_idColumn}, false)
@@ -469,7 +469,7 @@ Partial Public Class BdRHDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializeemployees1() As Boolean
+    Private Function ShouldSerializeRptJobEmployees() As Boolean
         Return false
     End Function
     
@@ -553,7 +553,7 @@ Partial Public Class BdRHDataSet
     Public Delegate Sub regionsRowChangeEventHandler(ByVal sender As Object, ByVal e As regionsRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub employees1RowChangeEventHandler(ByVal sender As Object, ByVal e As employees1RowChangeEvent)
+    Public Delegate Sub RptJobEmployeesRowChangeEventHandler(ByVal sender As Object, ByVal e As RptJobEmployeesRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -2801,14 +2801,28 @@ Partial Public Class BdRHDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class employees1DataTable
-        Inherits Global.System.Data.TypedTableBase(Of employees1Row)
+    Partial Public Class RptJobEmployeesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of RptJobEmployeesRow)
+        
+        Private columnjob_title As Global.System.Data.DataColumn
+        
+        Private columnfirst_name As Global.System.Data.DataColumn
+        
+        Private columnlast_name As Global.System.Data.DataColumn
+        
+        Private columnemail As Global.System.Data.DataColumn
+        
+        Private columnphone_number As Global.System.Data.DataColumn
+        
+        Private columnhire_date As Global.System.Data.DataColumn
+        
+        Private columnsalary As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "employees1"
+            Me.TableName = "RptJobEmployees"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -2840,6 +2854,62 @@ Partial Public Class BdRHDataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property job_titleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnjob_title
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property first_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfirst_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property last_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnlast_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property emailColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnemail
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property phone_numberColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnphone_number
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property hire_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhire_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property salaryColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsalary
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2850,44 +2920,44 @@ Partial Public Class BdRHDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As employees1Row
+        Public Default ReadOnly Property Item(ByVal index As Integer) As RptJobEmployeesRow
             Get
-                Return CType(Me.Rows(index),employees1Row)
+                Return CType(Me.Rows(index),RptJobEmployeesRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event employees1RowChanging As employees1RowChangeEventHandler
+        Public Event RptJobEmployeesRowChanging As RptJobEmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event employees1RowChanged As employees1RowChangeEventHandler
+        Public Event RptJobEmployeesRowChanged As RptJobEmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event employees1RowDeleting As employees1RowChangeEventHandler
+        Public Event RptJobEmployeesRowDeleting As RptJobEmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event employees1RowDeleted As employees1RowChangeEventHandler
+        Public Event RptJobEmployeesRowDeleted As RptJobEmployeesRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub Addemployees1Row(ByVal row As employees1Row)
+        Public Overloads Sub AddRptJobEmployeesRow(ByVal row As RptJobEmployeesRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Addemployees1Row() As employees1Row
-            Dim rowemployees1Row As employees1Row = CType(Me.NewRow,employees1Row)
-            Dim columnValuesArray(-1) As Object
-            rowemployees1Row.ItemArray = columnValuesArray
-            Me.Rows.Add(rowemployees1Row)
-            Return rowemployees1Row
+        Public Overloads Function AddRptJobEmployeesRow(ByVal job_title As String, ByVal first_name As String, ByVal last_name As String, ByVal email As String, ByVal phone_number As String, ByVal hire_date As Date, ByVal salary As Decimal) As RptJobEmployeesRow
+            Dim rowRptJobEmployeesRow As RptJobEmployeesRow = CType(Me.NewRow,RptJobEmployeesRow)
+            Dim columnValuesArray() As Object = New Object() {job_title, first_name, last_name, email, phone_number, hire_date, salary}
+            rowRptJobEmployeesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowRptJobEmployeesRow)
+            Return rowRptJobEmployeesRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As employees1DataTable = CType(MyBase.Clone,employees1DataTable)
+            Dim cln As RptJobEmployeesDataTable = CType(MyBase.Clone,RptJobEmployeesDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -2895,43 +2965,74 @@ Partial Public Class BdRHDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New employees1DataTable()
+            Return New RptJobEmployeesDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
+            Me.columnjob_title = MyBase.Columns("job_title")
+            Me.columnfirst_name = MyBase.Columns("first_name")
+            Me.columnlast_name = MyBase.Columns("last_name")
+            Me.columnemail = MyBase.Columns("email")
+            Me.columnphone_number = MyBase.Columns("phone_number")
+            Me.columnhire_date = MyBase.Columns("hire_date")
+            Me.columnsalary = MyBase.Columns("salary")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
+            Me.columnjob_title = New Global.System.Data.DataColumn("job_title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnjob_title)
+            Me.columnfirst_name = New Global.System.Data.DataColumn("first_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfirst_name)
+            Me.columnlast_name = New Global.System.Data.DataColumn("last_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnlast_name)
+            Me.columnemail = New Global.System.Data.DataColumn("email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnemail)
+            Me.columnphone_number = New Global.System.Data.DataColumn("phone_number", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnphone_number)
+            Me.columnhire_date = New Global.System.Data.DataColumn("hire_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhire_date)
+            Me.columnsalary = New Global.System.Data.DataColumn("salary", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsalary)
+            Me.columnjob_title.AllowDBNull = false
+            Me.columnjob_title.MaxLength = 35
+            Me.columnfirst_name.MaxLength = 20
+            Me.columnlast_name.AllowDBNull = false
+            Me.columnlast_name.MaxLength = 25
+            Me.columnemail.AllowDBNull = false
+            Me.columnemail.MaxLength = 100
+            Me.columnphone_number.MaxLength = 20
+            Me.columnhire_date.AllowDBNull = false
+            Me.columnsalary.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Newemployees1Row() As employees1Row
-            Return CType(Me.NewRow,employees1Row)
+        Public Function NewRptJobEmployeesRow() As RptJobEmployeesRow
+            Return CType(Me.NewRow,RptJobEmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New employees1Row(builder)
+            Return New RptJobEmployeesRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(employees1Row)
+            Return GetType(RptJobEmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.employees1RowChangedEvent) Is Nothing) Then
-                RaiseEvent employees1RowChanged(Me, New employees1RowChangeEvent(CType(e.Row,employees1Row), e.Action))
+            If (Not (Me.RptJobEmployeesRowChangedEvent) Is Nothing) Then
+                RaiseEvent RptJobEmployeesRowChanged(Me, New RptJobEmployeesRowChangeEvent(CType(e.Row,RptJobEmployeesRow), e.Action))
             End If
         End Sub
         
@@ -2939,8 +3040,8 @@ Partial Public Class BdRHDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.employees1RowChangingEvent) Is Nothing) Then
-                RaiseEvent employees1RowChanging(Me, New employees1RowChangeEvent(CType(e.Row,employees1Row), e.Action))
+            If (Not (Me.RptJobEmployeesRowChangingEvent) Is Nothing) Then
+                RaiseEvent RptJobEmployeesRowChanging(Me, New RptJobEmployeesRowChangeEvent(CType(e.Row,RptJobEmployeesRow), e.Action))
             End If
         End Sub
         
@@ -2948,8 +3049,8 @@ Partial Public Class BdRHDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.employees1RowDeletedEvent) Is Nothing) Then
-                RaiseEvent employees1RowDeleted(Me, New employees1RowChangeEvent(CType(e.Row,employees1Row), e.Action))
+            If (Not (Me.RptJobEmployeesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent RptJobEmployeesRowDeleted(Me, New RptJobEmployeesRowChangeEvent(CType(e.Row,RptJobEmployeesRow), e.Action))
             End If
         End Sub
         
@@ -2957,14 +3058,14 @@ Partial Public Class BdRHDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.employees1RowDeletingEvent) Is Nothing) Then
-                RaiseEvent employees1RowDeleting(Me, New employees1RowChangeEvent(CType(e.Row,employees1Row), e.Action))
+            If (Not (Me.RptJobEmployeesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent RptJobEmployeesRowDeleting(Me, New RptJobEmployeesRowChangeEvent(CType(e.Row,RptJobEmployeesRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Removeemployees1Row(ByVal row As employees1Row)
+        Public Sub RemoveRptJobEmployeesRow(ByVal row As RptJobEmployeesRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -2991,7 +3092,7 @@ Partial Public Class BdRHDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "employees1DataTable"
+            attribute2.FixedValue = "RptJobEmployeesDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3852,16 +3953,125 @@ Partial Public Class BdRHDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class employees1Row
+    Partial Public Class RptJobEmployeesRow
         Inherits Global.System.Data.DataRow
         
-        Private tableemployees1 As employees1DataTable
+        Private tableRptJobEmployees As RptJobEmployeesDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableemployees1 = CType(Me.Table,employees1DataTable)
+            Me.tableRptJobEmployees = CType(Me.Table,RptJobEmployeesDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property job_title() As String
+            Get
+                Return CType(Me(Me.tableRptJobEmployees.job_titleColumn),String)
+            End Get
+            Set
+                Me(Me.tableRptJobEmployees.job_titleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property first_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableRptJobEmployees.first_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'first_name' in table 'RptJobEmployees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableRptJobEmployees.first_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property last_name() As String
+            Get
+                Return CType(Me(Me.tableRptJobEmployees.last_nameColumn),String)
+            End Get
+            Set
+                Me(Me.tableRptJobEmployees.last_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property email() As String
+            Get
+                Return CType(Me(Me.tableRptJobEmployees.emailColumn),String)
+            End Get
+            Set
+                Me(Me.tableRptJobEmployees.emailColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property phone_number() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableRptJobEmployees.phone_numberColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'phone_number' in table 'RptJobEmployees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableRptJobEmployees.phone_numberColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property hire_date() As Date
+            Get
+                Return CType(Me(Me.tableRptJobEmployees.hire_dateColumn),Date)
+            End Get
+            Set
+                Me(Me.tableRptJobEmployees.hire_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property salary() As Decimal
+            Get
+                Return CType(Me(Me.tableRptJobEmployees.salaryColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableRptJobEmployees.salaryColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isfirst_nameNull() As Boolean
+            Return Me.IsNull(Me.tableRptJobEmployees.first_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setfirst_nameNull()
+            Me(Me.tableRptJobEmployees.first_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isphone_numberNull() As Boolean
+            Return Me.IsNull(Me.tableRptJobEmployees.phone_numberColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setphone_numberNull()
+            Me(Me.tableRptJobEmployees.phone_numberColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4121,16 +4331,16 @@ Partial Public Class BdRHDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class employees1RowChangeEvent
+    Public Class RptJobEmployeesRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As employees1Row
+        Private eventRow As RptJobEmployeesRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As employees1Row, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As RptJobEmployeesRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -4138,7 +4348,7 @@ Partial Public Class BdRHDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As employees1Row
+        Public ReadOnly Property Row() As RptJobEmployeesRow
             Get
                 Return Me.eventRow
             End Get
@@ -6964,7 +7174,7 @@ Namespace BdRHDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class employees1TableAdapter
+    Partial Public Class RptJobEmployeesTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -7079,6 +7289,17 @@ Namespace BdRHDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "RptJobEmployees"
+            tableMapping.ColumnMappings.Add("job_title", "job_title")
+            tableMapping.ColumnMappings.Add("first_name", "first_name")
+            tableMapping.ColumnMappings.Add("last_name", "last_name")
+            tableMapping.ColumnMappings.Add("email", "email")
+            tableMapping.ColumnMappings.Add("phone_number", "phone_number")
+            tableMapping.ColumnMappings.Add("hire_date", "hire_date")
+            tableMapping.ColumnMappings.Add("salary", "salary")
+            Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7094,9 +7315,10 @@ Namespace BdRHDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT jobs.jobs_title, employees.first_name, employees.last_name, employees.emai"& _ 
-                "l, employees.phone_number, employees.hire_date, employees.salary, employees.empl"& _ 
-                "oyee_id FROM employees INNER JOIN jobs ON employees.job_id = jobs.jobs_id"
+            Me._commandCollection(0).CommandText = "SELECT     jobs.job_title, employees.first_name, employees.last_name, employees.e"& _ 
+                "mail,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"employees.phone_number, employees.hire_date, employees.salary "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     "& _ 
+                " employees INNER JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   jobs ON employees.job_id = jobs.job_i"& _ 
+                "d  "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -7104,7 +7326,7 @@ Namespace BdRHDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As BdRHDataSet.employees1DataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As BdRHDataSet.RptJobEmployeesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -7117,9 +7339,9 @@ Namespace BdRHDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As BdRHDataSet.employees1DataTable
+        Public Overloads Overridable Function GetData() As BdRHDataSet.RptJobEmployeesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As BdRHDataSet.employees1DataTable = New BdRHDataSet.employees1DataTable()
+            Dim dataTable As BdRHDataSet.RptJobEmployeesDataTable = New BdRHDataSet.RptJobEmployeesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function

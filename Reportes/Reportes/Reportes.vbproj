@@ -73,11 +73,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BdHRDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BdHRDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="BdRHDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,19 +108,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="reporte\RptEmpleadoTrabajo.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BdHRDataSet.xsc">
-      <DependentUpon>BdHRDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BdHRDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BdHRDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BdHRDataSet.xss">
-      <DependentUpon>BdHRDataSet.xsd</DependentUpon>
-    </None>
     <None Include="BdRHDataSet.xsc">
       <DependentUpon>BdRHDataSet.xsd</DependentUpon>
     </None>
@@ -147,6 +132,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dao\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

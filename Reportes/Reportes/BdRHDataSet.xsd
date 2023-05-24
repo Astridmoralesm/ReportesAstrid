@@ -456,18 +456,29 @@ SELECT region_id, region_name FROM regions WHERE (region_id = @region_id)</Comma
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="employees1TableAdapter" GeneratorDataComponentClassName="employees1TableAdapter" Name="employees1" UserDataComponentName="employees1TableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RptJobEmployeesTableAdapter" GeneratorDataComponentClassName="RptJobEmployeesTableAdapter" Name="RptJobEmployees" UserDataComponentName="RptJobEmployeesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BdRHConnectionString (MySettings)" DbObjectName="BdRH.dbo.employees" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BdRHConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT jobs.jobs_title, employees.first_name, employees.last_name, employees.email, employees.phone_number, employees.hire_date, employees.salary, employees.employee_id FROM employees INNER JOIN jobs ON employees.job_id = jobs.jobs_id</CommandText>
+                    <CommandText>SELECT     jobs.job_title, employees.first_name, employees.last_name, employees.email,
+employees.phone_number, employees.hire_date, employees.salary 
+FROM      employees INNER JOIN 
+                   jobs ON employees.job_id = jobs.job_id  </CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
-            <Mappings />
+            <Mappings>
+              <Mapping SourceColumn="job_title" DataSetColumn="job_title" />
+              <Mapping SourceColumn="first_name" DataSetColumn="first_name" />
+              <Mapping SourceColumn="last_name" DataSetColumn="last_name" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="phone_number" DataSetColumn="phone_number" />
+              <Mapping SourceColumn="hire_date" DataSetColumn="hire_date" />
+              <Mapping SourceColumn="salary" DataSetColumn="salary" />
+            </Mappings>
             <Sources />
           </TableAdapter>
         </Tables>
@@ -655,8 +666,47 @@ SELECT region_id, region_name FROM regions WHERE (region_id = @region_id)</Comma
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="employees1" msprop:Generator_TableClassName="employees1DataTable" msprop:Generator_TableVarName="tableemployees1" msprop:Generator_TablePropName="employees1" msprop:Generator_RowDeletingName="employees1RowDeleting" msprop:Generator_RowChangingName="employees1RowChanging" msprop:Generator_RowEvHandlerName="employees1RowChangeEventHandler" msprop:Generator_RowDeletedName="employees1RowDeleted" msprop:Generator_UserTableName="employees1" msprop:Generator_RowChangedName="employees1RowChanged" msprop:Generator_RowEvArgName="employees1RowChangeEvent" msprop:Generator_RowClassName="employees1Row">
+        <xs:element name="RptJobEmployees" msprop:Generator_TableClassName="RptJobEmployeesDataTable" msprop:Generator_TableVarName="tableRptJobEmployees" msprop:Generator_TablePropName="RptJobEmployees" msprop:Generator_RowDeletingName="RptJobEmployeesRowDeleting" msprop:Generator_RowChangingName="RptJobEmployeesRowChanging" msprop:Generator_RowEvHandlerName="RptJobEmployeesRowChangeEventHandler" msprop:Generator_RowDeletedName="RptJobEmployeesRowDeleted" msprop:Generator_UserTableName="RptJobEmployees" msprop:Generator_RowChangedName="RptJobEmployeesRowChanged" msprop:Generator_RowEvArgName="RptJobEmployeesRowChangeEvent" msprop:Generator_RowClassName="RptJobEmployeesRow">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="job_title" msprop:Generator_ColumnVarNameInTable="columnjob_title" msprop:Generator_ColumnPropNameInRow="job_title" msprop:Generator_ColumnPropNameInTable="job_titleColumn" msprop:Generator_UserColumnName="job_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="first_name" msprop:Generator_ColumnVarNameInTable="columnfirst_name" msprop:Generator_ColumnPropNameInRow="first_name" msprop:Generator_ColumnPropNameInTable="first_nameColumn" msprop:Generator_UserColumnName="first_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="last_name" msprop:Generator_ColumnVarNameInTable="columnlast_name" msprop:Generator_ColumnPropNameInRow="last_name" msprop:Generator_ColumnPropNameInTable="last_nameColumn" msprop:Generator_UserColumnName="last_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phone_number" msprop:Generator_ColumnVarNameInTable="columnphone_number" msprop:Generator_ColumnPropNameInRow="phone_number" msprop:Generator_ColumnPropNameInTable="phone_numberColumn" msprop:Generator_UserColumnName="phone_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hire_date" msprop:Generator_ColumnVarNameInTable="columnhire_date" msprop:Generator_ColumnPropNameInRow="hire_date" msprop:Generator_ColumnPropNameInTable="hire_dateColumn" msprop:Generator_UserColumnName="hire_date" type="xs:dateTime" />
+              <xs:element name="salary" msprop:Generator_ColumnVarNameInTable="columnsalary" msprop:Generator_ColumnPropNameInRow="salary" msprop:Generator_ColumnPropNameInTable="salaryColumn" msprop:Generator_UserColumnName="salary" type="xs:decimal" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
